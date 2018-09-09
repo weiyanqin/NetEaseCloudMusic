@@ -15,7 +15,8 @@
     box-sizing: border-box;
 }
 
-ul, ol {
+ul,
+ol {
     list-style-type: none;
 }
 
@@ -24,7 +25,7 @@ a {
     color: inherit;
 }
 
-input{
+input {
     font: inherit;
 }
 
@@ -39,7 +40,7 @@ body {
     height: 100vh;
 }
 
-.page > aside {
+.page>aside {
     width: 200px;
 }
 
@@ -63,10 +64,13 @@ body {
     background: #d4d4d4d4;
 }
 
+#songList-container {
+    flex-grow: 1;
+}
+
 .songList {
     text-align: left;
     border: 1px solid #999;
-    flex-grow: 1;
 }
 
 .songList>li {
@@ -97,43 +101,49 @@ body {
 }
 
 /* main */
-.page > main{
+.page>main {
     background-color: #d4d4d4;
 }
-.form{
+
+.form {
     font-size: 14px;
 }
-.form > .row{
+
+.form>.row {
     margin: 20px 0;
     display: flex;
 }
-.form > .row > label{
+
+.form>.row>label {
     width: 4em;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin-right: 5px;
 }
-.form > .row.actions{
+
+.form>.row.actions {
     margin-left: calc(4em + 5px);
 }
-.form input[type=text]{
+
+.form input[type=text] {
     padding: 3px 8px;
     border-radius: 5px;
     border: 1px solid #ddd;
     height: 30px;
 }
+
 .form input[type=button],
 .form input[type=submit],
-.form button{
+.form button {
     height: 30px;
     padding-left: 10px;
     padding-right: 10px;
     border-radius: 5px;
 }
-.page > main{
+
+.page>main {
     padding-top: 20px;
 }
-.page > main > .form{
 
-}
+.page>main>.form {}
