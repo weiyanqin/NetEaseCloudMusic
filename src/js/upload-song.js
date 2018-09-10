@@ -1,7 +1,7 @@
 {
     let view = {
         el: '.uploadArea',
-        find(selector){
+        find(selector) {
             return $(this.el).find(selector)[0]
         }
     }
@@ -34,7 +34,7 @@
                     },
                     'UploadProgress': function (up, file) {
                         // 每个文件上传时,处理相关的事情
-                        uploadStatus.textContent = '上传中'
+                        // uploadStatus.textContent = '上传中'
                     },
                     //文件上传成功之后调用 FileUploaded
                     'FileUploaded': function (up, file, info) {
@@ -48,7 +48,10 @@
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
                         var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
-                        // uploadStatus.textContent = sourceLink + '' + response.key
+                        window.eventHub.emit('upload', {
+                            link: sourceLink,
+                            key: response.key
+                        })
                     },
                     'Error': function (up, err, errTip) {
                         //上传出错时,处理相关的事情
