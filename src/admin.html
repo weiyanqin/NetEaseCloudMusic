@@ -31,30 +31,7 @@
 
     <div id="uploadStatus"></div>
     <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
-    <script>
-        console.log(window.AV)
-        var APP_ID = 'g6MYFMyUvkHzqFAoie5sno0R-gzGzoHsz';
-        var APP_KEY = 'a2nlvGXcMnNxAtgsIY2F9t0F';
-
-        AV.init({
-            appId: APP_ID,
-            appKey: APP_KEY
-        });
-        // //创建数据库（只是在本地，只有在save的一瞬间才会真正的创建）
-        // var TestObject = AV.Object.extend('Playlist');
-        // //创建一条记录
-        // var testObject = new TestObject();
-        // //保存记录（保存的时候才会真正创建数据库）
-        // testObject.save({
-        //     name: 'test',
-        //     cover: 'test',
-        //     creator: 'text',
-        //     description: 'test',
-        //     songs: ['1','2'],
-        // }).then(function (object) {
-        //     alert('LeanCloud Rocks!');
-        // })
-    </script>
+    <script src="./js/initializers/av.js"></script>
     <script src="../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../vendors/moxie.js"></script>
     <script src="../node_modules/plupload/js/plupload.min.js"></script>
