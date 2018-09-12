@@ -72,9 +72,6 @@
             })
         },
         bindEventHub(){
-            window.eventHub.on('upload',()=>{
-                this.view.clearActive
-            })
             window.eventHub.on('create',(songData)=>{
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
