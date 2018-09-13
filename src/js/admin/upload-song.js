@@ -38,7 +38,7 @@
                         if(this.model.data.status === 'closed'){
                             return false
                         }else{
-                            this.model.status.data = 'closed'
+                            this.model.data.status === 'closed'
                             return true
                         }
                         // 每个文件上传前,处理相关的事情
@@ -48,9 +48,9 @@
                         // uploadStatus.textContent = '上传中'
                     },
                     //文件上传成功之后调用 FileUploaded
-                    'FileUploaded': function (up, file, info) {
+                    'FileUploaded':  (up, file, info)=> {
                         window.eventHub.emit('afterUpload')
-                        this.model.status.data = 'open'
+                        this.model.data.status = 'open'
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);
                         var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
