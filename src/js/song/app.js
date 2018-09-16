@@ -2,14 +2,14 @@
     let view = {
         el: '#app',
         render(data) {
-            let {
-                song,
-                status
-            } = data
+            let { song, status } = data
             $(this.el).css('background-image', `url(${song.cover})`)
             $(this.el).find('img.cover').attr('src', song.cover)
             if ($(this.el).find('audio').attr('src') !== song.url) {
-                $(this.el).find('audio').attr('src', song.url)
+                let audio = $(this.el).find('audio').attr('src',song.url).get(0)
+                audio.onended = ()=>{
+                    window.eventHub.emit('songEnd')
+                }
             }
             if (status === 'playing') {
                 $(this.el).find('.disc-container').addClass('playing')
@@ -70,6 +70,10 @@
                 this.model.data.status = 'paused'
                 this.view.render(this.model.data)
                 this.view.pause()
+            })
+            window.eventHub.on((songEnd)=>{
+                this.model.data.status = 'paused'
+                this.view.render(this.model.data)
             })
         },
         getSongId() {
