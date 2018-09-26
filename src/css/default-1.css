@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+body{
+    height: 100vh;
+    font-family: 'Tahoma',sans-serif;
+    display: flex;
+}
+.neteasemusic{
+    /* border: 1px solid red; */
+    margin: auto;
+    width: 150vh;
+    height: 90vh;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(64,64,64,0.7);
+    transition: all ease 0.3s;
+    overflow: hidden;
+}
+.top-bar{
+    height: 8vh;
+    position: relative;
+    background-color: #ba2025;
+}
+.top-bar .button{
+    position: absolute;
+    top: 0.5vh;
+    left: 5vh;
+    width: 2vh;
+    height: 2vh;
+    line-height: 1.7vh;
+    text-align: center;
+    color: rgba(0,0,0,0.4);
+    font-size: 2vh;
+    border-radius: 50%;
+    background: #f6be4f;
+}
+.top-bar .button::before{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -3.3vh;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    background-color: #ed6b60;
+}
+.top-bar .button::after{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -3.3vh;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    background-color: #62c655;
+}
+.top-bar .logo{
+    position: absolute;
+    bottom: 0.2vh;
+    left: 2vh;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 5vh;
+    width: 25vh;
+    /* border: 1px solid green; */
+}
+.top-bar .profile{
+    position: absolute;
+    right: 1vh;
+    bottom: 2vh;
+    color: #eeeeee;
+}
+.top-bar .profile li{
+    float: left;
+    margin-right: 3vh;
+    line-height: 1.5;
+    font-size: 2.5vh;
+}
+.top-bar .profile li .iconfont{
+    display: inline-block;
+    padding-right: 1vh;
+}

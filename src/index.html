@@ -159,10 +159,19 @@
             </li>
         </ol>
     </div>
+
     <script src="../vendors/vconsole.min.js"></script>
+
     <script>
-         var vConsole = new VConsole()
+        var vConsole = new VConsole()
+
+        window.onerror = function (message, file, row) {
+            console.log(message)
+            console.log(file)
+            console.log(row)
+        }
     </script>
+
     <script src="//at.alicdn.com/t/font_395875_4hwrep7mypx8ncdi.js"></script>
     <script src="../node_modules/leancloud-storage/dist/av-min.js"></script>
     <script src="./js/initializers/av.js"></script>
