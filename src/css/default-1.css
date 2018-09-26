@@ -1,3 +1,4 @@
+/* 默认样式 */
 *{
     margin: 0;
     padding: 0;
@@ -15,6 +16,8 @@ body{
     font-family: 'Tahoma',sans-serif;
     display: flex;
 }
+
+/* 整体布局 */
 .neteasemusic{
     /* border: 1px solid red; */
     margin: auto;
@@ -24,7 +27,11 @@ body{
     box-shadow: 0 0 10px rgba(64,64,64,0.7);
     transition: all ease 0.3s;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
+
+/* top-bar */
 .top-bar{
     height: 8vh;
     position: relative;
@@ -92,4 +99,39 @@ body{
 .top-bar .profile li .iconfont{
     display: inline-block;
     padding-right: 1vh;
+}
+
+/* interaction */
+.interaction{
+    display: flex;
+}
+.interaction .aside-bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 30vh;
+    height: 82vh;
+    background-color: #f6f6f6f6;
+    overflow: hidden;
+}
+.interaction .aside-bar .song-list{
+    height: 69vh;
+    font-size: 2vh;
+    overflow: auto;
+    border-right: 0.5vh solid #c8c8c8;
+}
+.interaction .aside-bar #addSong{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vh;
+    color: #333333;
+    border-right: 0.2vh solid #c8c8c8;
+    border-top: 0.2vh solid #ddd;
+    flex-grow: 1;
+    border-radius: 0 0 0 1vh;
+    transition: all ease 0.1s;
+}
+.interaction .aside-bar #addSong .iconfont{
+    margin-right: 1vh;
 }
