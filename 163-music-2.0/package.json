@@ -1,0 +1,27 @@
+{
+  "name": "neteasecloudmusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/weiyanqin/NetEaseCloudMusic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/weiyanqin/NetEaseCloudMusic/issues"
+  },
+  "homepage": "https://github.com/weiyanqin/NetEaseCloudMusic#readme",
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "leancloud-storage": "^3.10.0",
+    "plupload": "^2.3.2",
+    "qiniu": "^7.2.1",
+    "qiniu-js": "^1.0.22",
+    "vconsole": "^3.2.0"
+  }
+}
