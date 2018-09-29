@@ -1,0 +1,147 @@
+/* 默认样式 */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: inherit;
+}
+a{
+    text-decoration: none;
+}
+ul{
+    list-style-type: none;
+}
+body{
+    height: 100vh;
+    font-family: 'Tahoma',sans-serif;
+    display: flex;
+    line-height: 1.7vh;
+    font-size: 2vh;
+}
+
+/* 整体布局 */
+.neteasemusic{
+    /* border: 1px solid red; */
+    margin: auto;
+    width: 150vh;
+    height: 90vh;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(64,64,64,0.7);
+    transition: all ease 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* top-bar */
+.top-bar{
+    height: 8vh;
+    position: relative;
+    background-color: #ba2025;
+}
+.top-bar .button{
+    position: absolute;
+    top: 0.5vh;
+    left: 5vh;
+    width: 2vh;
+    height: 2vh;
+    text-align: center;
+    color: rgba(0,0,0,0.4);
+    border-radius: 50%;
+    background: #f6be4f;
+}
+.top-bar .button::before{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -3.3vh;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    background-color: #ed6b60;
+}
+.top-bar .button::after{
+    content:'';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -3.3vh;
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    background-color: #62c655;
+}
+.top-bar .logo{
+    position: absolute;
+    bottom: 0.2vh;
+    left: 2vh;
+    background-image: url(../img/logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 5vh;
+    width: 25vh;
+    /* border: 1px solid green; */
+}
+.top-bar .profile{
+    position: absolute;
+    right: 1vh;
+    bottom: 2vh;
+    color: #eeeeee;
+}
+.top-bar .profile li{
+    float: left;
+    margin-right: 3vh;
+    line-height: 1.5;
+    font-size: 2.5vh;
+}
+.top-bar .profile li .iconfont{
+    display: inline-block;
+    padding-right: 1vh;
+}
+
+/* interaction */
+.interaction{
+    display: flex;
+}
+.interaction .aside-bar{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 30vh;
+    height: 82vh;
+    background-color: #f6f6f6f6;
+    overflow: hidden;
+}
+.interaction .aside-bar .song-list{
+    height: 69vh;
+    font-size: 2vh;
+    overflow: auto;
+    border-right: 0.5vh solid #c8c8c8;
+}
+.interaction .aside-bar .uploadArea{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30vh;
+    color: #333333;
+    border-right: 0.2vh solid #c8c8c8;
+    border-top: 0.2vh solid #ddd;
+    flex-grow: 1;
+    border-radius: 0 0 0 1vh;
+    transition: all ease 0.1s;
+    font-size: 2.3vh;
+}
+.interaction .aside-bar .uploadArea .draggable:hover{
+    cursor: pointer;
+}
+.interaction .aside-bar .uploadArea .iconfont{
+    margin-right: 0.1vh;
+}
+
+
+.interaction .dashboard{
+    flex-grow: 1;
+    background-color: #fafafa;
+}
