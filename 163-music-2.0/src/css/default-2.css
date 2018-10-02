@@ -1,39 +1,44 @@
 /* 默认样式 */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: inherit;
 }
+
 ::-webkit-scrollbar {
     width: 1vh;
 }
-::-webkit-scrollbar-thumb{
+
+::-webkit-scrollbar-thumb {
     border-radius: 0.5vh;
-    background-color: rgba(0,0,0,0.1)
+    background-color: rgba(0, 0, 0, 0.1)
 }
-a{
+
+a {
     text-decoration: none;
 }
-ul{
+
+ul {
     list-style-type: none;
 }
-body{
+
+body {
     height: 100vh;
-    font-family: 'Tahoma',sans-serif;
+    font-family: 'Tahoma', sans-serif;
     display: flex;
     line-height: 1.7vh;
     font-size: 2vh;
 }
 
 /* 整体布局 */
-.neteasemusic{
+.neteasemusic {
     /* border: 1px solid red; */
     margin: auto;
     width: 150vh;
     height: 90vh;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(64,64,64,0.7);
+    box-shadow: 0 0 10px rgba(64, 64, 64, 0.7);
     transition: all ease 0.3s;
     overflow: hidden;
     display: flex;
@@ -41,24 +46,26 @@ body{
 }
 
 /* top-bar */
-.top-bar{
+.top-bar {
     height: 8vh;
     position: relative;
     background-color: #ba2025;
 }
-.top-bar .button{
+
+.top-bar .button {
     position: absolute;
     top: 0.5vh;
     left: 5vh;
     width: 2vh;
     height: 2vh;
     text-align: center;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
     border-radius: 50%;
     background: #f6be4f;
 }
-.top-bar .button::before{
-    content:'';
+
+.top-bar .button::before {
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -68,8 +75,9 @@ body{
     border-radius: 50%;
     background-color: #ed6b60;
 }
-.top-bar .button::after{
-    content:'';
+
+.top-bar .button::after {
+    content: '';
     display: block;
     position: absolute;
     top: 0;
@@ -79,7 +87,8 @@ body{
     border-radius: 50%;
     background-color: #62c655;
 }
-.top-bar .logo{
+
+.top-bar .logo {
     position: absolute;
     bottom: 0.2vh;
     left: 2vh;
@@ -91,38 +100,43 @@ body{
     width: 25vh;
     /* border: 1px solid green; */
 }
-.top-bar .profile{
+
+.top-bar .profile {
     position: absolute;
     right: 1vh;
     bottom: 2vh;
     color: #eeeeee;
 }
-.top-bar .profile li{
+
+.top-bar .profile li {
     float: left;
     margin-right: 3vh;
     line-height: 1.5;
     font-size: 2.5vh;
 }
-.top-bar .profile li .iconfont{
+
+.top-bar .profile li .iconfont {
     display: inline-block;
     padding-right: 1vh;
 }
 
 
-/* interaction */
-.interaction{
+/* interaction - aside-bar*/
+.interaction {
     display: flex;
 }
-.interaction .aside-bar{
+
+.interaction .aside-bar {
     display: flex;
     flex-direction: column;
     position: relative;
     width: 30vh;
     height: 82vh;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
-.interaction .aside-bar .song-list{
+
+.interaction .aside-bar .song-list {
     height: 69vh;
     font-size: 2vh;
     overflow: auto;
@@ -130,48 +144,49 @@ body{
 }
 
 
-.interaction .aside-bar .song-list ul{
+.interaction .aside-bar .song-list ul {
     margin-right: 0;
 }
 
-.interaction .aside-bar .song-list li{
+.interaction .aside-bar .song-list li {
     position: relative;
     padding: 1.5vh 1.5vh 1.5vh 5vh;
     cursor: pointer;
 }
 
-.interaction .aside-bar .song-list li:nth-child(even){
-    background-color:  white;
+.interaction .aside-bar .song-list li:nth-child(even) {
+    background-color: white;
 }
 
-.interaction .aside-bar .song-list li p{
+.interaction .aside-bar .song-list li p {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
 
-.interaction .aside-bar .song-list li p.song{
+.interaction .aside-bar .song-list li p.song {
     font-size: 2vh;
     margin-left: 1vh;
 }
 
-.interaction .aside-bar .song-list li p.singer{
+.interaction .aside-bar .song-list li p.singer {
     color: #494949;
     margin-left: 1vh;
     margin-top: 1vh;
     font-size: 1.5vh;
 }
 
-.interaction .aside-bar .song-list li p.singer .iconfont{
+.interaction .aside-bar .song-list li p.singer .iconfont {
     padding-right: 0.5vh;
     font-weight: bolder;
     font-size: 1.5vh;
 }
-.interaction .aside-bar .song-list li.active{
-    background: rgba(0,0,0,0.2);
+
+.interaction .aside-bar .song-list li.active {
+    background: rgba(0, 0, 0, 0.2);
 }
 
-.interaction .aside-bar .song-list li.active::before{
+.interaction .aside-bar .song-list li.active::before {
     position: absolute;
     top: calc(50% - 3vh);
     left: 0;
@@ -182,11 +197,11 @@ body{
     background-color: #ba2502;
 }
 
-.interaction .aside-bar .song-list  li::after{
+.interaction .aside-bar .song-list li::after {
     position: absolute;
     width: 3vh;
     height: 3vh;
-    content:'';
+    content: '';
     display: block;
     top: calc(50% - 1.5vh);
     left: 2vh;
@@ -196,7 +211,7 @@ body{
     background-repeat: no-repeat;
 }
 
-.interaction .aside-bar .uploadArea{
+.interaction .aside-bar .uploadArea {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -210,17 +225,80 @@ body{
     font-size: 2.3vh;
 }
 
-.interaction .aside-bar .uploadArea .draggable:hover{
+.interaction .aside-bar .uploadArea .draggable:hover {
     cursor: pointer;
 }
 
-.interaction .aside-bar .uploadArea .iconfont{
+.interaction .aside-bar .uploadArea .iconfont {
     margin-right: 0.1vh;
 }
 
-.interaction .dashboard{
+.interaction .dashboard {
     flex-grow: 1;
     background-color: #fafafa;
 }
 
+/* interaction - dashboard - welcome-page */
+.interaction .dashboard .welcome-page {
+    margin: 11vh auto;
+    width: 100vh;
+    height: 50vh;
+}
 
+.interaction .dashboard .welcome-page .swiper-container {
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 3vh rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+    /* padding: 0; */
+    z-index: 1;
+}
+
+.interaction .dashbord .welcome-page .swiper-wrapper {
+    /* position: relative; */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+}
+
+
+.interaction .dashboard .welcome-page .swiper-slide {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 1;
+    /* position: absolute; */
+}
+
+.interaction .dashboard .welcome-page .swiper-slide:nth-child(1) {
+    background-image: url("../img/1.jpg");
+    /* transition-duration: 300ms; */
+    /* transform: translate3d(0, 0, 0) */
+}
+
+.interaction .dashboard .welcome-page .swiper-slide:nth-child(2) {
+    background-image: url("../img/2.jpg");
+    /* transition-duration: 300ms; */
+    /* transform: translate3d(-100vh, 0, 0) */
+}
+
+.interaction .dashboard .welcome-page .swiper-slide:nth-child(3) {
+    background-image: url("../img/3.jpg");
+    /* transition-duration: 300ms; */
+    /* transform: translate3d(-200vh,0,0) */
+}
+
+.interaction .dashboard .welcome-page .welcome-info{
+    padding: 6vh 0;
+    font-size: 4vh;
+    color: #ba2502;
+    text-align: center;
+}
+.interaction .dashboard .welcome-page .welcome-info .iconfont{
+    font-size: 4vh;
+}

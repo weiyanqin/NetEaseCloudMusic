@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../src/css/default-2.css">
     <!-- <link rel="stylesheet" href="../src/css/welcomePage-2.css"> -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.1.6/css/swiper.min.css"> -->
-    <link rel="stylesheet" href="//at.alicdn.com/t/font_852493_rz6m37ovjzp.css">
+    <link rel="stylesheet" href="../vendors/swiper.min.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_852493_ww96sc4lvh.css">
     <title>管理页面2.0 </title>
 </head>
 
@@ -203,7 +203,19 @@
             <!-- 用户操作面板 -->
             <main class="dashboard">
                 <!-- 欢迎页面 -->
-                <div class="welcome-page"></div>
+                <div class="welcome-page">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                            <div class="swiper-slide"></div>
+                        </div>
+                    </div>
+                    <p class="welcome-info">
+                        <span class="iconfont icon-neteasecloudmusic"></span>
+                        欢迎使用网易云音乐后台管理系统!
+                    </p>
+                </div>
                 <!-- 查看音乐界面 -->
                 <div class="info-page hide"></div>
                 <!-- 编辑音乐页面 -->
@@ -228,6 +240,19 @@
     <script src="./js/admin/newSong-2.js"></script>
     <script src="./js/admin/songList-2.js"></script>
     <script src="./js/admin/uploadSong-2.js"></script> -->
+    <script src="../vendors/swiper.min.js"></script>
+    <script language="javascript">
+        var mySwiper = new Swiper('.swiper-container', {
+            autoplay: true,
+            initialSlide :0,
+            direction: 'horizontal', // 垂直切换选项
+            // loop: true, // 循环模式选项
+            speed: 1000,
+            autoplay:{
+                delay: 2000
+            },
+        })
+    </script>
 </body>
 
 </html>
