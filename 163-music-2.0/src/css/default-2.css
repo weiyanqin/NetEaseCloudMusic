@@ -5,6 +5,13 @@
     box-sizing: border-box;
     color: inherit;
 }
+::-webkit-scrollbar {
+    width: 1vh;
+}
+::-webkit-scrollbar-thumb{
+    border-radius: 0.5vh;
+    background-color: rgba(0,0,0,0.1)
+}
 a{
     text-decoration: none;
 }
@@ -101,6 +108,7 @@ body{
     padding-right: 1vh;
 }
 
+
 /* interaction */
 .interaction{
     display: flex;
@@ -111,15 +119,83 @@ body{
     position: relative;
     width: 30vh;
     height: 82vh;
-    background-color: #f6f6f6f6;
+    background-color: rgba(0,0,0,0.1);
     overflow: hidden;
 }
 .interaction .aside-bar .song-list{
     height: 69vh;
     font-size: 2vh;
     overflow: auto;
-    border-right: 0.5vh solid #c8c8c8;
+    border-right: 0.1vh solid #c8c8c8;
 }
+
+
+.interaction .aside-bar .song-list ul{
+    margin-right: 0;
+}
+
+.interaction .aside-bar .song-list li{
+    position: relative;
+    padding: 1.5vh 1.5vh 1.5vh 5vh;
+    cursor: pointer;
+}
+
+.interaction .aside-bar .song-list li:nth-child(even){
+    background-color:  white;
+}
+
+.interaction .aside-bar .song-list li p{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.interaction .aside-bar .song-list li p.song{
+    font-size: 2vh;
+    margin-left: 1vh;
+}
+
+.interaction .aside-bar .song-list li p.singer{
+    color: #494949;
+    margin-left: 1vh;
+    margin-top: 1vh;
+    font-size: 1.5vh;
+}
+
+.interaction .aside-bar .song-list li p.singer .iconfont{
+    padding-right: 0.5vh;
+    font-weight: bolder;
+    font-size: 1.5vh;
+}
+.interaction .aside-bar .song-list li.active{
+    background: rgba(0,0,0,0.2);
+}
+
+.interaction .aside-bar .song-list li.active::before{
+    position: absolute;
+    top: calc(50% - 3vh);
+    left: 0;
+    content: '';
+    display: block;
+    width: 0.6vh;
+    height: 6vh;
+    background-color: #ba2502;
+}
+
+.interaction .aside-bar .song-list  li::after{
+    position: absolute;
+    width: 3vh;
+    height: 3vh;
+    content:'';
+    display: block;
+    top: calc(50% - 1.5vh);
+    left: 2vh;
+    background-size: contain;
+    background-position: center;
+    background-image: url('../img/music.png');
+    background-repeat: no-repeat;
+}
+
 .interaction .aside-bar .uploadArea{
     display: flex;
     justify-content: center;
@@ -133,15 +209,18 @@ body{
     transition: all ease 0.1s;
     font-size: 2.3vh;
 }
+
 .interaction .aside-bar .uploadArea .draggable:hover{
     cursor: pointer;
 }
+
 .interaction .aside-bar .uploadArea .iconfont{
     margin-right: 0.1vh;
 }
-
 
 .interaction .dashboard{
     flex-grow: 1;
     background-color: #fafafa;
 }
+
+

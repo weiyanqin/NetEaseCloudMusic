@@ -1,0 +1,8 @@
+.interaction .dashboard .hide{
+    display: none;
+}
+.interaction .dashboard .welcome-page{
+    margin: 70px auto;
+    width: 700px;
+    border: 1px solid red;
+}
