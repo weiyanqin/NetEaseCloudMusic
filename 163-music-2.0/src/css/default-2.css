@@ -125,6 +125,9 @@ body {
 .interaction {
     display: flex;
 }
+.interaction .hide{
+    display: none;
+}
 
 .interaction .aside-bar {
     display: flex;
@@ -237,7 +240,7 @@ body {
     flex-grow: 1;
     background-color: #fafafa;
 }
-
+/* innteraction - dashboard/
 /* interaction - dashboard - welcome-page */
 .interaction .dashboard .welcome-page {
     margin: 11vh auto;
@@ -301,4 +304,74 @@ body {
 }
 .interaction .dashboard .welcome-page .welcome-info .iconfont{
     font-size: 4vh;
+}
+
+/* interaction dashboard info-page */
+.interaction .dashboard .info-page{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+.interaction .dashboard .info-page .show-area{
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    padding: 2vh 4vh 4vh;
+    width: 80vh;
+    border-radius: 2vh;
+    box-shadow: 0 0 0.5vh 0 rgba(0,0,0,0.2)
+}
+.interaction .dashboard .info-page .show-area label{
+    padding: 3vh 1vh 0.6vh;
+    text-align: left;
+    cursor: default;
+}
+.interaction .dashboard .info-page .show-area input{
+    padding:0 2vh;
+    height: 6vh;
+    font-size: 3vh;
+    color: #333333;
+    border: .2vh solid #bbb;
+    border-radius: 1vh;
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
+}
+
+.interaction .dashboard .info-page .show-area textarea{
+    padding: 2vh;
+    font-size: 3vh;
+    resize: none;
+    border: .2vh solid #bbbbbb;
+    border-radius: 1vh;
+    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
+}
+.interaction .dashboard .info-page .show-area button-wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 6vh 0 2vh;
+}
+.interaction .dashboard .info-page .show-area button-wrapper .delete{
+    color: #eeeeee;
+    background-color: #ba2502;
+    padding: 2vh 0;
+    width: 40vh;
+    line-height: 3vh;
+    font-size: 3vh;
+    text-align: center;
+    border: .2vh solid #ba2502;
+    border-radius: 1vh;
+    cursor: pointer;
+}
+.interaction .dashboard .info-page .show-area button-wrapper .confirm{
+    color: #ba2502;
+    transition: all ease .3s;
+    padding: 2vh 0;
+    width: 40vh;
+    line-height: 3vh;
+    font-size: 3vh;
+    text-align: center;
+    border: .2vh solid #ba2502;
+    border-radius: 1vh;
+    cursor: pointer;
 }
