@@ -435,6 +435,60 @@ body {
     border-radius: 1vh;
     cursor: pointer;
 }
+
+/* interaction dashboard upload-page */
+
+.interaction .dashboard .upload-page{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%
+}
+.interaction .dashboard .upload-page #upload-area{
+    position: relative;
+    margin-top: 22vh;
+    width: 100vh;
+    height: 60vh;
+    border:.5vh dashed #e3e3e3;
+    border-radius: 3vh;
+}
+.interaction .dashboard .upload-page #upload-area::before{
+    display: block;
+    content:'请选择文件或将文件拖曳至此上传';
+    position: absolute;
+    top: calc(50% - 3vh);
+    left: calc(50% - 23vh);
+    line-height: 4vh;
+    font-size: 3vh;
+    color: #d7d7d7;
+}
+.interaction .dashboard .upload-page #upload-area #upload-button{
+    position: absolute;
+    top: calc(100% + 4vh);
+    padding: 2vh;
+    width: 30vh;
+    line-height: 4vh;
+    font-size: 3vh;
+    text-align: center;
+    color: #ba2502;
+    border-radius: 1vh;
+    border: .2vh solid #ba2502;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.interaction .dashboard .upload-page #upload-area #upload-button::after{
+    display: block;
+    position: absolute;
+    content: '上传文件名称请按照"歌曲名 - 歌手"形式规范';
+    bottom: 0;
+    left: 110%;
+    white-space: nowrap;
+    overflow: hidden;
+    color: #ba2502;
+    text-overflow: ellipsis;
+    font-size: 2vh;
+}
 .interaction .dashboard .hide{
     display: none;
 }
