@@ -238,26 +238,12 @@
                     </div>
                 </div>
                 <!-- 编辑音乐页面 -->
-                <div class="edit-page hide">
-                    <div class="show-area">
-                        <label>歌曲名称</label>
-                        <input type="text" class="song" name="song" value="{{song}}">
-                        <label>歌手</label>
-                        <input type="text" class="singer" name="singer" value="{{singer}}">
-                        <label>歌词</label>
-                        <textarea class="lyric" name="lyric" cols="30" rows="5">{{lyric}}</textarea>
-                        <label>歌曲封面链接</label>
-                        <input type=" text" class="cover" name="cover" value="{{cover}}">
-                        <label>歌曲外链</label>
-                        <input type="text" class="url" name="url" value="{{url}}" disabled>
-                        <div class="button-wrapper">
-                            <div class="confirm">确&nbsp;&nbsp;定</div>
-                        </div>
-                    </div>
+                <div class="edit-page">
+
 
                 </div>
                 <!-- 上传歌曲页面 -->
-                <div class="upload-page">
+                <div class="upload-page hide">
                     <div id="upload-area">
                         <div id="upload-button">
                             选择文件
@@ -280,11 +266,8 @@
     <script src="../vendors/moxie.js"></script>
     <script src="../node_modules/plupload/js/plupload.min.js"></script>
     <script src="../node_modules/qiniu-js/dist/qiniu.min.js"></script>
-    <!-- <script src="./js/admin/eventHub-2.js"></script>
-    <script src="./js/admin/songEdit-2.js"></script>
-    <script src="./js/admin/newSong-2.js"></script>
-    <script src="./js/admin/songList-2.js"></script>
-    <script src="./js/admin/uploadSong-2.js"></script> -->
+    <script src="./js/admin/songForm.js"></script>
+
     <script src="../vendors/swiper.min.js"></script>
     <script language="javascript">
         var mySwiper = new Swiper('.swiper-container', {
