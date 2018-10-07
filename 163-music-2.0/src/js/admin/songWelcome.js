@@ -16,6 +16,12 @@
         `,
         render(){
             $(this.el).html(this.template)
+        },
+        show(){
+            $(this.el).removeClass('hide')
+        },
+        hide(){
+            $(this.el).addClass('hide')
         }
     }
     let model = {}
@@ -24,6 +30,12 @@
             this.view = view
             this.model = model
             this.view.render(this.model.data)
+            this.bindEvents()
+        },
+        bindEvents(){
+            eventHub.on('new', ()=>{
+                this.view.hide()
+            })
         }
     }
     controller.init(view, model)

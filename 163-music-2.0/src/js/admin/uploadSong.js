@@ -14,7 +14,7 @@
         render(data) {
             $(this.el).html(this.template)
         },
-        find(selector){
+        find(selector) {
             return $(this.el).find(selector)[0]
         }
     }
@@ -25,6 +25,7 @@
             this.model = model
             this.view.render(this.model.data)
             this.initQiniu()
+            this.bindEvents()
         },
         initQiniu() {
             var uploader = Qiniu.uploader({
@@ -61,13 +62,13 @@
                     'FileUploaded': (up, file, info) => {
                         // window.eventHub.emit('afterUpload')
                         // this.model.data.status = 'open'
-                        // var domain = up.getOption('domain');
-                        // var response = JSON.parse(info.response);
-                        // var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
-                        // window.eventHub.emit('new', {
-                        //     url: sourceLink,
-                        //     name: response.key
-                        // })
+                        var domain = up.getOption('domain');
+                        var response = JSON.parse(info.response);
+                        var sourceLink = 'http://' + domain + '/' + encodeURIComponent(response.key);
+                        window.eventHub.emit('upload', {
+                            url: sourceLink,
+                            name: response.key
+                        })
                     },
                     'Error': function (up, err, errTip) {
                         //上传出错时,处理相关的事情
@@ -76,6 +77,14 @@
                         //队列文件处理完毕后,处理相关的事情
                     },
                 }
+            })
+        },
+        bindEvents() {
+            window.eventHub.on('new', () => {
+                $(this.view.el).removeClass('hide')
+            })
+            window.eventHub.on('edit',()=>{
+                $(this.view.el).addClass('hide')
             })
         }
     }

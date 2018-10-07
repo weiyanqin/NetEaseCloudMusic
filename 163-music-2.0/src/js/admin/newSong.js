@@ -19,6 +19,16 @@
             this.view = view
             this.model = model
             this.view.render(this.model.data)
+            this.bindEvents()
+            // window.eventHub.on('upload',(data)=>{
+            //     console.log('new song 模块得到了"data"')
+            //     console.log(data)
+            // }) 
+        },
+        bindEvents(){
+            $(this.view.el).find('#uploadButton').on('click',()=>{
+                window.eventHub.emit('new', '用户需要新增歌曲')
+            })
         }
     }
     controller.init(view, model)
