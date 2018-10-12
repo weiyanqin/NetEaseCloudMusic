@@ -1,49 +1,50 @@
 {
     let view = {
-        el: '.song-list',
+        el: '.song-list ul',
         template: `
-        <ul>
-            <li class="active">
-                <p class="song" title="少林英雄">
-                    <a href="">少林英雄</a>
+            <li class="">
+                <p class="name" title="{{name}}">
+                    <a href="">{{name}}</a>
                 </p>
                 <p class="singer">
                     <span class="iconfont icon-geshou"></span>
-                    于荣光
+                    {{singer}}
                 </p>
                 <p class="lyric"></p>
                 <p class="cover"></p>
             </li>
-        </ul>
         `,
-        render(data){
+        temporaryTemplate: '',
+        render(data, temporaryTemplate) {
             let $el = $(this.el)
-            $el.html(this.template)
-            let {songs} = data
-            let liList = songs.map((song)=>{
-                return $('<li></li>').text(song.name)
+            let { songs } = data
+            let newTemplate = songs.map((song) => {
+                for (let key in song) {
+                    switch (key) {
+                        case 'name':
+                            temporaryTemplate = this.template.replace(/\{\{name\}\}/g, song[key]);
+                            break;
+                        case 'singer':
+                            temporaryTemplate = temporaryTemplate.replace(/\{\{singer\}\}/g, song[key]);
+                            break;
+                    }
+                }
+                return temporaryTemplate
             })
-            $el.find('ul').empty()
-            liList.map((domLi)=>{
-                $el.find('ul').append(domLi)
-            })
+            $el.html(newTemplate)
         },
-        clearActive(){
+        clearActive() {
             $(this.el).find('.active').removeClass('.active')
         }
     }
     let model = {
         data: {
-            songs: [ ]
+            songs: []
         },
         find(){
-            console.log('2')
             var query = new AV.Query('Song')
-            console.log('3')
             return query.find().then((songs)=>{
-                console.log('4')
                 this.data.songs = songs.map((song)=>{
-                    console.log('5')
                     return {id: song.id, ...song.attributes}
                 })
                 return songs
@@ -51,21 +52,18 @@
         }
     }
     let controller = {
-        init(view, model){
+        init(view, model) {
             this.view = view
-            this.model = model 
+            this.model = model
             this.view.render(this.model.data)
             this.bindEvents()
         },
-        bindEvents(){
-            window.eventHub.on('create', (songData)=>{
+        bindEvents() {
+            window.eventHub.on('create', (songData) => {
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
-            console.log('1')
             this.model.find().then(()=>{
-                console.log('-----')
-                console.log(this.model.data)
                 this.view.render(this.model.data)
             })
         }

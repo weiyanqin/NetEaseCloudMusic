@@ -163,7 +163,7 @@ body {
     text-overflow: ellipsis;
 }
 
-.interaction .aside-bar .song-list li p.song {
+.interaction .aside-bar .song-list li p.name {
     font-size: 2vh;
     margin-left: 1vh;
 }

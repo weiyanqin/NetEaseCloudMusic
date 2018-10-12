@@ -86,6 +86,7 @@
                         this.view.reset()
                         let string = JSON.stringify(this.model.data)
                         let object = JSON.parse(string)
+                        console.log(object)
                         window.eventHub.emit('create', object)
                     })
             })
