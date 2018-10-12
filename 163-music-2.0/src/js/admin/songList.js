@@ -35,6 +35,12 @@
         },
         clearActive() {
             $(this.el).find('.active').removeClass('.active')
+        },
+        activeItem(li){
+            let $li = $(li)
+            console.log('1')
+            $li.addClass('active').siblings('.active').removeClass('active')
+            console.log('2')
         }
     }
     let model = {
@@ -65,6 +71,10 @@
             })
             this.model.find().then(()=>{
                 this.view.render(this.model.data)
+            })
+            $(this.view.el).on('click','li',(e)=>{
+                console.log(e.currentTarget)
+                this.view.activeItem(e.currentTarget)
             })
         }
     }
