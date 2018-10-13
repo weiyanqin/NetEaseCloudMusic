@@ -56,10 +56,7 @@
             var query = new AV.Query('Song')
             return query.find().then((songs) => {
                 this.data.songs = songs.map((song) => {
-                    return {
-                        id: song.id,
-                        ...song.attributes
-                    }
+                    return { id: song.id, ...song.attributes }
                 })
                 return songs
             })
@@ -81,8 +78,17 @@
                 this.view.render(this.model.data)
             })
             $(this.view.el).on('click', 'li', (e) => {
-                console.log(e.currentTarget)
                 this.view.activeItem(e.currentTarget)
+                let songId = e.currentTarget.getAttribute('id')
+                let songs = this.model.data.songs
+                console.log(songs)
+                for(let i = 0; i<songs.length; i++){
+                    if(songs[i].id === songId){
+                        data = songs[i]
+                        break
+                    }
+                }
+                window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
         }
     }

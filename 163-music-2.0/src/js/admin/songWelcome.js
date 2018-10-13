@@ -33,7 +33,10 @@
             this.bindEvents()
         },
         bindEvents(){
-            eventHub.on('new', ()=>{
+            window.eventHub.on('new', ()=>{
+                this.view.hide()
+            })
+            window.eventHub.on('select',()=>{
                 this.view.hide()
             })
         }
