@@ -86,6 +86,9 @@
             window.eventHub.on('edit',()=>{
                 $(this.view.el).addClass('hide')
             })
+            window.eventHub.on('select',()=>{
+                $(this.view.el).addClass('hide')
+            })
         }
     }
     controller.init(view, model)

@@ -92,6 +92,9 @@
                 this.model.data = data
                 this.view.render(this.model.data)
             })
+            window.eventHub.on('new',()=>{
+                $(this.view.el).addClass('hide')
+            })
         }
     }
     controller.init(view, model)

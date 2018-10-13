@@ -30,6 +30,7 @@
                 window.eventHub.emit('new', '用户需要新增歌曲')
             })
         }
+
     }
     controller.init(view, model)
 }
