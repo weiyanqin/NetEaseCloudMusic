@@ -2,7 +2,7 @@
     let view = {
         el: '.song-list ul',
         template: `
-            <li class="">
+            <li class="" id="{{id}}">
                 <p class="name" title="{{name}}">
                     <a href="">{{name}}</a>
                 </p>
@@ -14,44 +14,52 @@
                 <p class="cover"></p>
             </li>
         `,
-        temporaryTemplate: '',
-        render(data, temporaryTemplate) {
+        templateName: '<p class="name" title="{{name}}"> <a href="">{{name}}</a> </p>',
+        templateSinger: '<p class="singer"> <span class="iconfont icon-geshou"></span> {{singer}} </p>',
+        templateId: '<li class="" id="{{id}}"></li>',
+        render(data) {
             let $el = $(this.el)
-            let { songs } = data
+            let {
+                songs
+            } = data
             let newTemplate = songs.map((song) => {
                 for (let key in song) {
                     switch (key) {
-                        case 'name':
-                            temporaryTemplate = this.template.replace(/\{\{name\}\}/g, song[key]);
+                        case ('name'):
+                            this.template = this.template.replace(/\{\{name\}\}/g, song[key]);
                             break;
-                        case 'singer':
-                            temporaryTemplate = temporaryTemplate.replace(/\{\{singer\}\}/g, song[key]);
+                        case ('singer'):
+                            this.template = this.template.replace(/\{\{singer\}\}/g, song[key]);
+                            break;
+                        case ('id'):
+                            this.template = this.template.replace(/\{\{id\}\}/g, song[key]);
                             break;
                     }
                 }
-                return temporaryTemplate
+                return this.template
             })
             $el.html(newTemplate)
         },
         clearActive() {
             $(this.el).find('.active').removeClass('.active')
         },
-        activeItem(li){
+        activeItem(li) {
             let $li = $(li)
-            console.log('1')
             $li.addClass('active').siblings('.active').removeClass('active')
-            console.log('2')
         }
     }
     let model = {
         data: {
             songs: []
         },
-        find(){
+        find() {
             var query = new AV.Query('Song')
-            return query.find().then((songs)=>{
-                this.data.songs = songs.map((song)=>{
-                    return {id: song.id, ...song.attributes}
+            return query.find().then((songs) => {
+                this.data.songs = songs.map((song) => {
+                    return {
+                        id: song.id,
+                        ...song.attributes
+                    }
                 })
                 return songs
             })
@@ -69,10 +77,10 @@
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
-            this.model.find().then(()=>{
+            this.model.find().then(() => {
                 this.view.render(this.model.data)
             })
-            $(this.view.el).on('click','li',(e)=>{
+            $(this.view.el).on('click', 'li', (e) => {
                 console.log(e.currentTarget)
                 this.view.activeItem(e.currentTarget)
             })
