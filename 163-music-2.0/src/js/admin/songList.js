@@ -19,25 +19,27 @@
         templateId: '<li class="" id="{{id}}"></li>',
         render(data) {
             let $el = $(this.el)
-            let {
-                songs
-            } = data
-            let newTemplate = songs.map((song) => {
-                for (let key in song) {
+            let { songs } = data
+            let temporaryTemplate = this.template
+            let newTemplate = []
+            for (let i = 0; i < songs.length; i++) {
+                for (let key in songs[i]) {
                     switch (key) {
                         case ('name'):
-                            this.template = this.template.replace(/\{\{name\}\}/g, song[key]);
+                            this.template = this.template.replace(/\{\{name\}\}/g, songs[i][key]);
                             break;
                         case ('singer'):
-                            this.template = this.template.replace(/\{\{singer\}\}/g, song[key]);
+                            this.template = this.template.replace(/\{\{singer\}\}/g, songs[i][key]);
                             break;
                         case ('id'):
-                            this.template = this.template.replace(/\{\{id\}\}/g, song[key]);
+                            this.template = this.template.replace(/\{\{id\}\}/g, songs[i][key]);
                             break;
                     }
                 }
-                return this.template
-            })
+               newTemplate.push(this.template)
+               this.template = temporaryTemplate
+            }
+            console.log(newTemplate)
             $el.html(newTemplate)
         },
         clearActive() {
@@ -66,24 +68,27 @@
         init(view, model) {
             this.view = view
             this.model = model
-            this.view.render(this.model.data)
+            // this.view.render(this.model.data)
             this.bindEvents()
         },
         bindEvents() {
+            this.model.find().then(() => {
+                console.log('----------')
+                console.log(this.model.data)
+                this.view.render(this.model.data)
+            })
             window.eventHub.on('create', (songData) => {
+                console.log(songData)
                 this.model.data.songs.push(songData)
                 this.view.render(this.model.data)
             })
-            this.model.find().then(() => {
-                this.view.render(this.model.data)
-            })
+
             $(this.view.el).on('click', 'li', (e) => {
                 this.view.activeItem(e.currentTarget)
                 let songId = e.currentTarget.getAttribute('id')
                 let songs = this.model.data.songs
-                console.log(songs)
-                for(let i = 0; i<songs.length; i++){
-                    if(songs[i].id === songId){
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === songId) {
                         data = songs[i]
                         break
                     }

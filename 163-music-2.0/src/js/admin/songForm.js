@@ -13,9 +13,9 @@
                 <input type=" text" class="cover" name="cover" value="{{cover}}">
                 <label>歌曲外链</label>
                 <input type="text" class="url" name="url" value="__url__">
-                <v class="button-wrapper">
+                <div class="button-wrapper">
                     <button class="confirm" type="submit">保&nbsp;&nbsp;存</button>
-                </v>
+                </div>
             </form>      
         `,
         render(data = {}) {
@@ -68,6 +68,15 @@
             window.eventHub.on('upload', (data) => {
                 this.model.data = data
                 this.view.render(this.model.data)
+                // console.log(this.model.data.id)
+                // if(this.model.data.id){
+                //     this.model.data = {
+                //         name: '',url: '',id: '',singer: ''
+                //     }
+                // }else{
+                //     Object.assign(this.model.data, data)
+                // }
+                // this.view.render(this.model.data)
                 $(this.view.el).removeClass('hide')
                 window.eventHub.emit('edit', '用户需要编辑歌曲')
             })
@@ -87,10 +96,8 @@
                         window.eventHub.emit('create', object)
                     })
             })
-            window.eventHub.on('select',(data)=>{
-                $(this.view.el).removeClass('hide')
-                this.model.data = data
-                this.view.render(this.model.data)
+            window.eventHub.on('select',()=>{
+                $(this.view.el).addClass('hide')
             })
             window.eventHub.on('new',()=>{
                 $(this.view.el).addClass('hide')

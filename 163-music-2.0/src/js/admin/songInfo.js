@@ -4,9 +4,9 @@
         template: `
             <div class="show-area">
                 <label>歌曲名称</label>
-                <input type="text" class="song" name="song" value="啷个哩个啷">
+                <input type="text" class="song" name="song" value="__name___">
                 <label>歌手</label>
-                <input type="text" class="singer" name="singer" value="鹏泊">
+                <input type="text" class="singer" name="singer" value="__singer__">
                 <label>歌词</label>
                 <textarea class="lyric" name="lyric" cols="30" rows="8"></textarea>
                 <label>封面链接</label>
@@ -21,17 +21,40 @@
                 </div>
             </div>       
         `,
-        render(data){
-            $(this.el).html(this.template)
-
+        render(data = {}) {
+            let placeholders = ['name', 'url']
+            let html = this.template
+            placeholders.map((string) => {
+                html = html.replace(`__${string}__`, data[string] || '')
+            })
+            $(this.el).html(html)
         }
     }
-    let model = {}
+    let model = {
+        data: {
+            name: '',
+            singer: '',
+            url: '',
+            id: '',
+        }
+    }
     let controller = {
-        init(view, model){
+        init(view, model) {
             this.view = view
             this.model = model
+            this.bindEvents()
             this.view.render(this.model.data)
+        },
+        bindEvents() {
+            window.eventHub.on('select', (data) => {
+                console.log(data)
+                $(this.view.el).removeClass('hide')
+                this.model.data = data
+                this.view.render(this.model.data)
+            })
+            window.eventHub.on('new', () => {
+                $(this.view.el).addClass('hide')
+            })
         }
     }
     controller.init(view, model)
