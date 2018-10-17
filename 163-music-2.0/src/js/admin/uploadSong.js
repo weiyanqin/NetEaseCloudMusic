@@ -45,7 +45,7 @@
                         });
                     },
                     'BeforeUpload': (up, file) => {
-                        // window.eventHub.emit('beforeUpload')
+                        window.eventHub.emit('beforeUpload')
                         // if (this.model.data.status === 'closed') {
                         //     return false
                         // } else {
@@ -60,7 +60,7 @@
                     },
                     //文件上传成功之后调用 FileUploaded
                     'FileUploaded': (up, file, info) => {
-                        // window.eventHub.emit('afterUpload')
+                        window.eventHub.emit('afterUpload')
                         // this.model.data.status = 'open'
                         var domain = up.getOption('domain');
                         var response = JSON.parse(info.response);

@@ -124,6 +124,7 @@ body {
 .interaction {
     display: flex;
 }
+
 /* interaction - aside-bar*/
 .interaction .aside-bar {
     display: flex;
@@ -236,13 +237,15 @@ body {
     flex-grow: 1;
     background-color: #fafafa;
 }
+
 /* innteraction - dashboard */
-.interaction .dashboard{
+.interaction .dashboard {
     width: 100vh;
     height: 50vh
 }
+
 /* interaction - dashboard - welcome-page */
-.interaction .dashboard .welcome-page{
+.interaction .dashboard .welcome-page {
     margin: 11vh auto;
     width: 100vh;
     height: 50vh;
@@ -296,25 +299,27 @@ body {
     /* transform: translate3d(-200vh,0,0) */
 }
 
-.interaction .dashboard .welcome-page .welcome-info{
+.interaction .dashboard .welcome-page .welcome-info {
     padding: 6vh 0;
     font-size: 4vh;
     color: #ba2502;
     text-align: center;
 }
-.interaction .dashboard .welcome-page .welcome-info .iconfont{
+
+.interaction .dashboard .welcome-page .welcome-info .iconfont {
     font-size: 4vh;
 }
 
 /* interaction dashboard info-page */
-.interaction .dashboard .info-page{
+.interaction .dashboard .info-page {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
-.interaction .dashboard .info-page .show-area{
+
+.interaction .dashboard .info-page .show-area {
     border: 1px solid red;
     margin-top: 30vh;
     display: flex;
@@ -322,37 +327,41 @@ body {
     padding: .1vh 4vh .1vh;
     width: 80vh;
     border-radius: 2vh;
-    box-shadow: 0 0 0.5vh 0 rgba(0,0,0,0.2)
+    box-shadow: 0 0 0.5vh 0 rgba(0, 0, 0, 0.2)
 }
-.interaction .dashboard .info-page .show-area label{
+
+.interaction .dashboard .info-page .show-area label {
     padding: 3vh 1vh 0.6vh;
     text-align: left;
     cursor: default;
 }
-.interaction .dashboard .info-page .show-area input{
-    padding:0 2vh;
+
+.interaction .dashboard .info-page .show-area input {
+    padding: 0 2vh;
     height: 6vh;
     font-size: 2vh;
     color: #333333;
     border: .2vh solid #bbb;
     border-radius: 1vh;
-    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.08)
 }
 
-.interaction .dashboard .info-page .show-area textarea{
+.interaction .dashboard .info-page .show-area textarea {
     padding: 2vh;
     font-size: 2vh;
     resize: none;
     border: .2vh solid #bbbbbb;
     border-radius: 1vh;
-    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.08)
 }
-.interaction .dashboard .info-page .show-area .button-wrapper{
+
+.interaction .dashboard .info-page .show-area .button-wrapper {
     display: flex;
     justify-content: space-between;
     padding: 2vh 0 2vh;
 }
-.interaction .dashboard .info-page .show-area .button-wrapper .delete{
+
+.interaction .dashboard .info-page .show-area .button-wrapper .delete {
     color: #eeeeee;
     background-color: #ba2502;
     padding: 2vh 0;
@@ -364,7 +373,8 @@ body {
     border-radius: 1vh;
     cursor: pointer;
 }
-.interaction .dashboard .info-page .show-area .button-wrapper .confirm{
+
+.interaction .dashboard .info-page .show-area .button-wrapper .confirm {
     color: #ba2502;
     transition: all ease .3s;
     padding: 2vh 0;
@@ -378,14 +388,15 @@ body {
 }
 
 /* interaction dashboard edit-page */
-.interaction .dashboard .edit-page{
+.interaction .dashboard .edit-page {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
 }
-.interaction .dashboard .edit-page .show-area{
+
+.interaction .dashboard .edit-page .show-area {
     border: 1px solid red;
     margin-top: 30vh;
     display: flex;
@@ -393,37 +404,41 @@ body {
     padding: .1vh 4vh .1vh;
     width: 80vh;
     border-radius: 2vh;
-    box-shadow: 0 0 0.5vh 0 rgba(0,0,0,0.2)
+    box-shadow: 0 0 0.5vh 0 rgba(0, 0, 0, 0.2)
 }
-.interaction .dashboard .edit-page label{
+
+.interaction .dashboard .edit-page label {
     padding: 3vh 1vh 0.6vh;
     text-align: left;
     cursor: default;
 }
-.interaction .dashboard .edit-page input{
-    padding:0 2vh;
+
+.interaction .dashboard .edit-page input {
+    padding: 0 2vh;
     height: 6vh;
     font-size: 2vh;
     color: #333333;
     border: .2vh solid #bbb;
     border-radius: 1vh;
-    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.08)
 }
 
-.interaction .dashboard .edit-page textarea{
+.interaction .dashboard .edit-page textarea {
     padding: 2vh;
     font-size: 2vh;
     resize: none;
     border: .2vh solid #bbbbbb;
     border-radius: 1vh;
-    box-shadow: inset 0 2px 4px 0 rgba(0,0,0,0.08)
-} 
-.interaction .dashboard .edit-page .button-wrapper{
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+}
+
+.interaction .dashboard .edit-page .button-wrapper {
     display: flex;
     justify-content: space-between;
     padding: 2vh 0 2vh;
 }
-.interaction .dashboard .edit-page .button-wrapper .confirm{
+
+.interaction .dashboard .edit-page .button-wrapper .confirm {
     color: #eeeeee;
     background-color: #ba2502;
     padding: .5vh 0;
@@ -438,24 +453,26 @@ body {
 
 /* interaction dashboard upload-page */
 
-.interaction .dashboard .upload-page{
+.interaction .dashboard .upload-page {
     /* border: 1px solid red; */
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%
 }
-.interaction .dashboard .upload-page #upload-area{
+
+.interaction .dashboard .upload-page #upload-area {
     position: relative;
     margin-top: 22vh;
     width: 100vh;
     height: 60vh;
-    border:.5vh dashed #e3e3e3;
+    border: .5vh dashed #e3e3e3;
     border-radius: 3vh;
 }
-.interaction .dashboard .upload-page #upload-area::before{
+
+.interaction .dashboard .upload-page #upload-area::before {
     display: block;
-    content:'请选择文件或将文件拖曳至此上传';
+    content: '请选择文件或将文件拖曳至此上传';
     position: absolute;
     top: calc(50% - 3vh);
     left: calc(50% - 23vh);
@@ -463,7 +480,8 @@ body {
     font-size: 3vh;
     color: #d7d7d7;
 }
-.interaction .dashboard .upload-page #upload-area #upload-button{
+
+.interaction .dashboard .upload-page #upload-area #upload-button {
     position: absolute;
     top: calc(100% + 4vh);
     padding: 2vh;
@@ -477,7 +495,8 @@ body {
     cursor: pointer;
     transition: all ease .3s;
 }
-.interaction .dashboard .upload-page #upload-area #upload-button::after{
+
+.interaction .dashboard .upload-page #upload-area #upload-button::after {
     display: block;
     position: absolute;
     content: '上传文件名称请按照"歌曲名 - 歌手"形式规范';
@@ -489,6 +508,48 @@ body {
     text-overflow: ellipsis;
     font-size: 2vh;
 }
-.interaction .dashboard .hide{
+
+.interaction .dashboard .hide {
     display: none;
+}
+
+/* loading */
+
+@keyframes loading {
+    0% {
+        transform: scale(1.0);
+    }
+
+    100% {
+        transform: scale(0.1);
+    }
+}
+.site-loading {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.2);
+    pointer-events: none;
+}
+.site-loading.active{
+    visibility: visible; 
+}
+.site-loading::before {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    background: green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    animation: loading 1s infinite alternate-reverse;
+    animation-timing-function: linear;
 }
