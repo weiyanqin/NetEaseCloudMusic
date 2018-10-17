@@ -2,7 +2,7 @@
     let view = {
         el: '.song-list ul',
         template: `
-            <li class="" id="{{id}}">
+            <li class="{{class}}" id="{{id}}">
                 <p class="name" title="{{name}}">
                     <a href="">{{name}}</a>
                 </p>
@@ -19,7 +19,8 @@
         templateId: '<li class="" id="{{id}}"></li>',
         render(data) {
             let $el = $(this.el)
-            let { songs } = data
+            let { songs, selectSongId } = data
+            console.log(songs)
             let temporaryTemplate = this.template
             let newTemplate = []
             for (let i = 0; i < songs.length; i++) {
@@ -35,9 +36,12 @@
                             this.template = this.template.replace(/\{\{id\}\}/g, songs[i][key]);
                             break;
                     }
+                    if (songs[i].id === selectSongId) 
+                        this.template = this.template.replace(/\{\{class\}\}/g, 'active')
+                    
                 }
-               newTemplate.push(this.template)
-               this.template = temporaryTemplate
+                newTemplate.push(this.template)
+                this.template = temporaryTemplate
             }
             console.log(newTemplate)
             $el.html(newTemplate)
@@ -52,7 +56,8 @@
     }
     let model = {
         data: {
-            songs: []
+            songs: [],
+            selectSongId: undefined,
         },
         find() {
             var query = new AV.Query('Song')
@@ -73,8 +78,6 @@
         },
         bindEvents() {
             this.model.find().then(() => {
-                console.log('----------')
-                console.log(this.model.data)
                 this.view.render(this.model.data)
             })
             window.eventHub.on('create', (songData) => {
@@ -86,6 +89,13 @@
             $(this.view.el).on('click', 'li', (e) => {
                 this.view.activeItem(e.currentTarget)
                 let songId = e.currentTarget.getAttribute('id')
+
+
+                this.model.data.selectSongId = songId
+                console.log(this.model.data)
+                this.view.render(this.model.data)
+
+
                 let songs = this.model.data.songs
                 for (let i = 0; i < songs.length; i++) {
                     if (songs[i].id === songId) {
@@ -95,13 +105,11 @@
                 }
                 window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
-            
-            window.eventHub.on('update', (song)=>{
-                console.log(song)
+
+            window.eventHub.on('update', (song) => {
                 let songs = this.model.data.songs
-                console.log(songs)
-                for(let i=0; i<songs.length; i++){
-                    if(songs[i].id === song.id){
+                for (let i = 0; i < songs.length; i++) {
+                    if (songs[i].id === song.id) {
                         Object.assign(songs[i], song)
                     }
                 }
