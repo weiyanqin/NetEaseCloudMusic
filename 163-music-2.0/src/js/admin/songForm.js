@@ -8,9 +8,9 @@
                 <label>歌手</label>
                 <input type="text" class="singer" name="singer" value="__singer__">
                 <label>歌词</label>
-                <textarea class="lyric" name="lyric" cols="30" rows="5">{{lyric}}</textarea>
+                <textarea class="lyrics" name="lyrics" cols="30" rows="5">__lyrics__</textarea>
                 <label>歌曲封面链接</label>
-                <input type=" text" class="cover" name="cover" value="{{cover}}">
+                <input type=" text" class="cover" name="cover" value="__cover__">
                 <label>歌曲外链</label>
                 <input type="text" class="url" name="url" value="__url__">
                 <div class="button-wrapper">
@@ -19,7 +19,7 @@
             </form>      
         `,
         render(data = {}) {
-            let placeholders = ['name', 'url']
+            let placeholders = ['name', 'url', 'singer', 'lyrics', 'id', 'cover']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -35,21 +35,26 @@
             name: '',
             singer: '',
             url: '',
-            id: ''
+            id: '',
+            cover: '',
+            lyrics: '',
         },
         create(data) {
             var Song = AV.Object.extend('Song')
             var song = new Song()
             song.set('name', data.name)
             song.set('singer', data.singer)
+            song.set('lyrics', data.lyrics)
             song.set('url', data.url)
+            song.set('cover', data.cover)
             return song.save().then((newSong) => {
                 let { id, attributes } = newSong
                 Object.assign(this.data, {
                     id: id,
                     name: attributes.name,
                     singer: attributes.singer,
-                    url: attributes.url
+                    url: attributes.url,
+                    lyrics: attributes.lyrics
                 })
             }, (error) => {
                 console.log(error)
@@ -82,7 +87,7 @@
             })
             $(this.view.el).on('submit', 'form', (e) => {
                 e.preventDefault()
-                let needs = 'name singer url'.split(' ')
+                let needs = 'name singer url cover lyrics'.split(' ')
                 let data = {}
                 needs.map((string) => {
                     data[string] = $(this.view.el).find(`[name = "${string}"]`).val()

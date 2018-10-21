@@ -8,7 +8,7 @@
                 <label>歌手</label>
                 <input type="text" class="singer" name="singer" value="__singer__">
                 <label>歌词</label>
-                <textarea class="lyric" name="lyric" cols="30" rows="8"></textarea>
+                <textarea class="lyrics" name="lyrics" cols="30" rows="8"></textarea>
                 <label>封面链接</label>
                 <input type="text" class="cover" name="cover" value="http://p1.music.126.net/ZnFe6Uj1Lmr_HrAjDbe02Q==/1394180751920871.jpg?param=130y130">
                 <div class="button-wrapper">
@@ -34,13 +34,17 @@
         data: {
             name: '',
             singer: '',
+            lyrics:'',
             url: '',
             id: '',
+            cover: '',
         },
         update(data) {
             var song = AV.Object.createWithoutData('Song', model.data.id)
             song.set('name', data.name)
             song.set('singer', data.singer)
+            song.set('lyrics', data.lyrics)
+            song.set('cover', data.cover)
             // song.set('url', data.url)
             return song.save().then((response)=>{
                 Object.assign(this.data, data)
@@ -56,7 +60,7 @@
             this.view.render(this.model.data)
         },
         update() {
-            let needs = 'name singer'.split(' ')
+            let needs = 'name singer lyrics cover'.split(' ')
             let data = {}
             needs.map((string) => {
                 data[string] = $(this.view.el).find(`[name = "${string}"]`).val()

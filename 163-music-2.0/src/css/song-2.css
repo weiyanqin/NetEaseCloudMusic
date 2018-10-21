@@ -23,8 +23,9 @@
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background: transparent url(http: //p3.music.126.net/z4p2xss2a50qNHe6TLFdoA==/2425522650910827.jpg) no-repeat center;
-        background-size: cover;
+    background: transparent url(http://img3.imgtn.bdimg.com/it/u=1874210720,2749907957&fm=26&gp=0.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .disc-container {
@@ -119,6 +120,7 @@
 }
 
 .song-description .lyric {
+    border: 1px solid red;
     height: 72px;
     overflow: hidden;
 }
