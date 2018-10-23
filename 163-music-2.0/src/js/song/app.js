@@ -20,7 +20,6 @@
             }
             this.$el.find('.song-description>h1').text(song.name)
             let {lyrics} = song
-            console.log(yrics)
             lyrics.split('\n').map((string)=>{
                 let p = document.createElement('p')
                 let regex = /\[([\d:.]+)\](.+)/
@@ -29,7 +28,6 @@
                     p.textContent = matches[2]
                     let time = matches[1]
                     let parts = time.split(':')
-                    console.log(parts)
                     let minutes = parts[0]
                     let seconds = parts[1]
                     let newTime = parseInt(minutes, 10) * 60 + parseFloat(seconds, 10)
