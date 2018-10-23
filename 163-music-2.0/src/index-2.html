@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index-2.css">
     <link rel="stylesheet" href="./css/index-2-page2.css">
+    <link rel="stylesheet" href="./css/index-2-page3.css">
     <title>我的云音乐</title>
 </head>
 
@@ -166,9 +167,32 @@
                 </div>
             </li>
             <li class="page-3">
-                <input id="search" type="text" style="background:#EBECEC;">
-                <ol id="searchResult"></ol>
-            </li>
+                    <div class="search-area">
+                        <span class="search-icon">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-sousuo"></use>
+                            </svg>
+                        </span>
+                        <label>
+                            <input id="search" type="text" placeholder="搜索歌曲、歌手、专辑" style="background:#EBECEC;">
+                        </label>
+                        <span id="clear-button" class="clear-button hide">
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-qingchu"></use>
+                            </svg>
+                        </span>
+                    </div>
+                    <div id="top-search" class="top-search">
+                        <h2 class="hotTitle">热门搜索</h2>
+                        <ul id="searchResult" class="hot-list"></ul>
+                    </div>
+                    <div id="top-search-result" class="top-search-result">
+                        <h2 id="search-h2"></h2>
+                        <ul id="search-list" class="search-list">
+                        </ul>
+                        <div id="not-found" class="not-found hide">嘿嘿，没有你要听的歌~ 🤣</div>
+                    </div>
+                </li>            
         </ol>
     </div>
 
