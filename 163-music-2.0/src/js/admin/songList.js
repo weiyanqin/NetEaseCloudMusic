@@ -38,7 +38,6 @@
                     }
                     if (songs[i].id === selectSongId) 
                         this.template = this.template.replace(/\{\{class\}\}/g, 'active')
-                    
                 }
                 newTemplate.push(this.template)
                 this.template = temporaryTemplate
@@ -90,11 +89,9 @@
                 this.view.activeItem(e.currentTarget)
                 let songId = e.currentTarget.getAttribute('id')
 
-
                 this.model.data.selectSongId = songId
                 console.log(this.model.data)
                 this.view.render(this.model.data)
-
 
                 let songs = this.model.data.songs
                 for (let i = 0; i < songs.length; i++) {
@@ -103,6 +100,7 @@
                         break
                     }
                 }
+                console.log(data)
                 window.eventHub.emit('select', JSON.parse(JSON.stringify(data)))
             })
 

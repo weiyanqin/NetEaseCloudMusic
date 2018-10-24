@@ -4,13 +4,13 @@
         template: `
             <form class="show-area">
                 <label>歌曲名称</label>
-                <input type="text" class="song" name="name" value="__name___">
+                <input type="text" class="song" name="name" value="__name__">
                 <label>歌手</label>
                 <input type="text" class="singer" name="singer" value="__singer__">
                 <label>歌词</label>
-                <textarea class="lyrics" name="lyrics" cols="30" rows="8"></textarea>
+                <textarea class="lyrics" name="lyrics" cols="30" rows="8">__lyrics__</textarea>
                 <label>封面链接</label>
-                <input type="text" class="cover" name="cover" value="http://p1.music.126.net/ZnFe6Uj1Lmr_HrAjDbe02Q==/1394180751920871.jpg?param=130y130">
+                <input type="text" class="cover" name="cover" value="__cover__">
                 <div class="button-wrapper">
                     <button class="delete">
                         删&nbsp;&nbsp;除
@@ -22,7 +22,7 @@
             </form>       
         `,
         render(data = {}) {
-            let placeholders = ['name', 'url']
+            let placeholders = ['name', 'singer', 'cover', 'lyrics']
             let html = this.template
             placeholders.map((string) => {
                 html = html.replace(`__${string}__`, data[string] || '')
@@ -78,12 +78,14 @@
                 this.model.data = data
                 this.view.render(this.model.data)
             })
+
             $(this.view.el).on('submit', 'form', (e) => {
                 e.preventDefault()
                 if (this.model.data.id) {
                     this.update()
                 }
             })
+
             window.eventHub.on('new', () => {
                 $(this.view.el).addClass('hide')
             })
