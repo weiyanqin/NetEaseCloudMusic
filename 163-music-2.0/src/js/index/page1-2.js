@@ -38,7 +38,6 @@
             document.body.appendChild(script1)
         },
         loadModule2() {
-            alert('nihao')
             let script2 = document.createElement('script')
             script2.src = './js/index/page1-2-2.js'
             script2.onload = function () {
