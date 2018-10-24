@@ -4,10 +4,9 @@
 
 ## 预览
 ### 移动端歌曲页面
-[歌曲展示页面](https://littlebirdflying.github.io/163-music-201805/src/index.html)
-![index.png](https://i.loli.net/2018/07/09/5b430ecbdb177.png)
+[歌曲展示页面](https://weiyanqin.github.io/NetEaseCloudMusic/163-music-2.0/src/index-2.html)
 ### 歌曲管理页面
-[歌曲管理页面](https://littlebirdflying.github.io/163-music-201805/src/admin.html)
+[歌曲管理页面](https://weiyanqin.github.io/NetEaseCloudMusic/163-music-2.0/src/admin-2.html)
 ![未命名图片.png](https://i.loli.net/2018/07/09/5b430ecbc3ec2.png)
 ## 实现功能
 * 移动端最新音乐展示歌曲列表、展示热歌榜歌曲、搜索歌曲，以及歌曲播放、暂停、歌词展示功能。<br>
